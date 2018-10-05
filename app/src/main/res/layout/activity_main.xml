@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context="com.example.dell.angeestorysaver.SaverActivities.MainActivity">
+    tools:context="com.softgrp.pasha.whatsstatussaver.SaverActivities.MainActivity">
 
     <FrameLayout
             android:id="@+id/fragment_container"
