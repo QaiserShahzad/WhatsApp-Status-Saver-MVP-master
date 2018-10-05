@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
+
 import com.example.dell.angeestorysaver.R;
 
 /**
@@ -14,19 +18,30 @@ import com.example.dell.angeestorysaver.R;
  */
 
 public class SplashActivity extends AppCompatActivity{
-    private static final long DELAY = 2000;
+
+    int a;
+    LinearLayout up,down;
+    Animation uptodown , downtoup;
+    private static final long DELAY = 5000;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
-
         writeIntoSharedPref(getApplicationContext());
+
+        up=(LinearLayout)findViewById(R.id.UP);
+//        down=(LinearLayout)findViewById(R.id.DOWN);
+        uptodown= AnimationUtils.loadAnimation(this, R.anim.uptodown);
+        up.setAnimation(uptodown);
+//        downtoup=AnimationUtils.loadAnimation(this,R.anim.downtoup);
+//        down.setAnimation(downtoup);
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                finish();
             }
         }, DELAY);
     }

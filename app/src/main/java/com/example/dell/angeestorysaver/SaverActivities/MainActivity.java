@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements SaverContract.Vie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        getSupportActionBar().setTitle("Whatsapp Status Saver");
 
         presenter = new Presenter(this);
         presenter.getAllStatus();

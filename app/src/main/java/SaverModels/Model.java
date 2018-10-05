@@ -51,7 +51,7 @@ public class Model implements MvpDataManager{
     @Override
     public void saveStatus(String path) {
         File Externalpath1 = Environment.getExternalStorageDirectory();
-        String desFileName = Externalpath1.getAbsolutePath() + "/AngeeStorySaver/";
+        String desFileName = Externalpath1.getAbsolutePath() + "/Whats Status Saver/";
         File newDir = new File(desFileName);
         if (!newDir.isDirectory() && !newDir.exists()){
             boolean directoryCreated = newDir.mkdir();
@@ -68,11 +68,11 @@ public class Model implements MvpDataManager{
         String savedStoryPath = desFileName + getName(path);
         File SaveStoryFile = new File(savedStoryPath);
         if (!SaveStoryFile.isFile() && !SaveStoryFile.exists()){
-            Log.i("File Status", "Doesnt exist");
+//            Log.i("File Status", "Doesnt exist");
             try {
                 boolean fileCreated = SaveStoryFile.createNewFile();
                 if (fileCreated){
-                    Log.i("File Status", "File Created");
+//                    Log.i("File Status", "File Created");
                     copyStatusIntoFile(savedStoryPath, path);
                 }
             } catch (IOException e) {
@@ -80,7 +80,7 @@ public class Model implements MvpDataManager{
             }
         }else {
             saveListener.savedSuccessful(false);
-            Log.i("File Status", "File already exists");
+//            Log.i("File Status", "File already exists");
         }
     }
 
@@ -95,11 +95,11 @@ public class Model implements MvpDataManager{
 
             long id = destinationChannel.transferFrom(inComingChannel, 0, inComingChannel.size());
             if (id > 0){
-                Log.i("Copy Status: ", "Copied");
+//                Log.i("Copy Status: ", "Copied");
                 saveListener.savedSuccessful(true);
                 //give a notification that it has been done
             }else {
-                Log.i("Copy Status: ", "Cant copy");
+//                Log.i("Copy Status: ", "Cant copy");
             }
 
         } catch (FileNotFoundException e) {
