@@ -22,7 +22,7 @@ public class SplashActivity extends AppCompatActivity{
     int a;
     LinearLayout up,down;
     Animation uptodown , downtoup;
-    private static final long DELAY = 5000;
+    private static final long DELAY = 6000;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,11 +30,8 @@ public class SplashActivity extends AppCompatActivity{
         writeIntoSharedPref(getApplicationContext());
 
         up=(LinearLayout)findViewById(R.id.UP);
-//        down=(LinearLayout)findViewById(R.id.DOWN);
         uptodown= AnimationUtils.loadAnimation(this, R.anim.uptodown);
         up.setAnimation(uptodown);
-//        downtoup=AnimationUtils.loadAnimation(this,R.anim.downtoup);
-//        down.setAnimation(downtoup);
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
